@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Main page</title>
+ <link rel="stylesheet" href="V/assets/css/style.css">
+ <script type="text/javascript" src="V/assets/js/tableScripts.js"></script>
+</head>
+<body>
+ <h1><?php echo static::e($change); ?></h1>
+ <table>
+ <thead>
+ <th>Geolocations</th>
+ <?php $__currentLoopData = $years; $this->addLoop($__currentLoopData); foreach($__currentLoopData as $year): $this->incrementLoopIndices(); $loop = $this->getFirstLoop(); ?>
+ <th class="expandable"><?php echo static::e($year); ?></th>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </thead>
+
+ <tbody>
+ <?php $__currentLoopData = $table_rows; $this->addLoop($__currentLoopData); foreach($__currentLoopData as $key_geolocation => $row): $this->incrementLoopIndices(); $loop = $this->getFirstLoop(); ?>
+ <tr>    
+ <th class="expandable"><?php echo static::e($key_geolocation); ?></th>   
+ <?php $__currentLoopData = $years; $this->addLoop($__currentLoopData); foreach($__currentLoopData as $year): $this->incrementLoopIndices(); $loop = $this->getFirstLoop(); ?>
+ <td> <?php echo static::e($row[$year]); ?> </td>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </tr>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </tbody>
+ </table> 
+</body>
+</html>
